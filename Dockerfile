@@ -8,3 +8,7 @@ ADD netxms-3.9.334.tar.gz /tmp
 WORKDIR /tmp/netxms-3.9.334/
 RUN ./configure --with-mariadb --with-server --with-mariadb-compat-headers
 RUN make && make install
+
+COPY netxmsd.conf /etc/
+
+ENTRYPOINT["/usr/local/bin/netxmsd -d"]
