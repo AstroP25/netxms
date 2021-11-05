@@ -19,4 +19,4 @@ WORKDIR /
 RUN rm -rf netxms-3.9.334/
 
 # Start netxmsd as a daemon
-ENTRYPOINT ["/usr/local/bin/netxmsd","-d"]
+ENTRYPOINT ["/usr/local/bin/netxmsd","-D"]
