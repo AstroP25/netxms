@@ -1,13 +1,13 @@
 FROM scratch
-ADD alpine-minirootfs-3.14.2-x86_64.tar.gz /
+ADD alpine-minirootfs-3.16.2-x86_64.tar.gz /
 
 # Update and install dependencies
 RUN apk update && apk upgrade
 RUN apk add g++ gcc make perl openssl-dev curl mariadb-client mariadb-dev nmap linux-headers pcre-dev
-ADD netxms-3.9.334.tar.gz /tmp
+ADD netxms-4.1.420.tar.gz /tmp
 
 # Build NetXMS server with MariaDB driver
-WORKDIR /tmp/netxms-3.9.334/
+WORKDIR /tmp/netxms-4.1.420/
 RUN ./configure --with-mariadb --with-server --with-mariadb-compat-headers
 RUN make && make install
 
@@ -16,7 +16,7 @@ COPY netxmsd.conf /etc/
 
 # Remove build files
 WORKDIR /
-RUN rm -rf netxms-3.9.334/
+RUN rm -rf /tmp/netxms-4.1.420/
 
 # Start netxmsd as a daemon
 ENTRYPOINT ["/usr/local/bin/netxmsd","-D"]
