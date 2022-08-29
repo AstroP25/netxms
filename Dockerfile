@@ -23,4 +23,4 @@ EXPOSE 4701
 RUN nxdbmgr init
 
 # Start netxmsd as a daemon
-ENTRYPOINT ["/usr/local/bin/netxmsd","-d"]
+ENTRYPOINT ["/usr/local/bin/netxmsd"]
