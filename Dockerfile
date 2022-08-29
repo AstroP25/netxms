@@ -18,5 +18,7 @@ COPY netxmsd.conf /etc/
 WORKDIR /
 RUN rm -rf /tmp/netxms-4.1.420/
 
+EXPOSE 4701
+
 # Start netxmsd as a daemon
 ENTRYPOINT ["/usr/local/bin/netxmsd","-D"]
