@@ -12,8 +12,6 @@ git clone https://github.com/AstroP25/netxms.git
 ```
 cd netxms/
 ```
-Modify Dockerfile to create correct mini rootfs.
-(i.e. alpine-minirootfs-3.14.2-[armhf,armv7,x86_64])
 ```
 docker build -t netxms:4.1.420 .
 ```

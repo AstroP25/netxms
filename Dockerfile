@@ -1,5 +1,4 @@
-FROM scratch
-ADD alpine-minirootfs-3.16.2-x86_64.tar.gz /
+FROM alpine:3.16.2
 
 # Update and install dependencies
 RUN apk update && apk upgrade
