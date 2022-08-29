@@ -19,5 +19,8 @@ RUN rm -rf /tmp/netxms-4.1.420/
 
 EXPOSE 4701
 
+# Initialize Database (will not hurt existing database)
+RUN nxdbmgr init
+
 # Start netxmsd as a daemon
 ENTRYPOINT ["/usr/local/bin/netxmsd","-d"]
